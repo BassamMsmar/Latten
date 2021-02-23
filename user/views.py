@@ -8,12 +8,12 @@ def signin(request):
         form = forms.FormRegisterUser(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('posts')
+            return redirect('login')
 
     else:
         form = forms.FormRegisterUser()
     
     context = {'form':form}
-    return render(request, 'user/form-register-user.html', context)
+    return render(request, 'registration/form-register-user.html', context)
 
 

@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h2>
+        لقد تم تسجيل خروجك بنجاح 
+    </h2>
+    <a href="{% url 'login' %}">اعادة تسجيل الدخول مرة اخرى </a>
+    <a href="{% url 'posts'%}"> القائمة الرئيسية </a>
+{% endblock content %}

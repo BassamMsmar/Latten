@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+    <a href="{% url 'posts' %}">
+            <button> القائمة الرئيسية </button>
+        </a>
+        <h2>
+            أهلاً بالمستخدم الجديد 
+        </h2>
+        <form method="POST" >
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button> تسجيل </button>
+        </form>
+{% endblock content %}

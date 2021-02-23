@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+   <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button>تسجيل الدخول</button>
+    </form>
+
+    <small>
+        <div>
+            اذا لم يكن لديك حساب يرجى تسجيل <a href="{% url 'signin' %}">  حساب جديد </a>
+       </div>
+        <div>
+            او انتقل الى   <a href="{% url 'posts' %}"> الصفحة الرئيسة</a>
+        </div>
+    </small>
+{% endblock content %}
