@@ -1,14 +1,14 @@
 {% extends 'base.html' %}
 {% block content %}
-    <a href="{% url 'posts' %}">
-            <button> القائمة الرئيسية </button>
-        </a>
-        <h2>
-            أهلاً بالمستخدم الجديد 
-        </h2>
-        <form method="POST" >
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button> تسجيل </button>
-        </form>
+{% load crispy_forms_tags %}
+
+
+<div class="border p-4 mb-5">
+    <legend class="border-bottom pb-1 mb-3">التسجيل</legend>
+    <form method="POST" >
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button type="button" class="btn btn-outline-success">تسجيل</button>
+    </form>
+</div>
 {% endblock content %}

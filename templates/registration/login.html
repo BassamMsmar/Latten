@@ -1,17 +1,18 @@
 {% extends 'base.html' %}
 {% block content %}
-   <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button>تسجيل الدخول</button>
-    </form>
+    <div class="border p-4 mb-5">
+        <legend class="border-bottom pb-1 mb-3">تسجيل الدخول</legend>
 
-    <small>
-        <div>
-            اذا لم يكن لديك حساب يرجى تسجيل <a href="{% url 'signin' %}">  حساب جديد </a>
-       </div>
-        <div>
-            او انتقل الى   <a href="{% url 'posts' %}"> الصفحة الرئيسة</a>
-        </div>
-    </small>
+    <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="button" class="btn btn-outline-success">  دخول </button>
+
+
+        </form>
+    </div>
+    <div class="border-top mt-4 pt-2">
+        <small>إذا لم يكن لديك حساب من قبل فيمكنك <a href="{% url 'signin' %}">التسجيل من هنا</a></small>
+    </div>
+
 {% endblock content %}

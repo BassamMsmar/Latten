@@ -1,34 +1,31 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
-   <div>
-        <a href="{% url 'signin' %}">
-            <button>تسجيل مستخدم جديد </button>
-        </a>
-        <a href="{% url 'login' %}">
-            <button>تسجيل الدخول </button>
-        </a>
-        <a href="{% url 'logout' %}">
-            <button>تسجيل الخروج </button>
+
+    <div>
+      
+        <a href="{% url 'add_psot' %}">
+            <div class="m-3">
+                <img src="{% static 'images/addpost.png' %}" width="50px" >
+            </div>
         </a>
     </div>
 
-    <div>
-        <a href="{% url 'add_psot' %}">
-            <button>اضافة منشور</button>
-        </a>
+    {% for post in posts %}
+    <div class="border p-3 mb-3">
+        <span class="text-secondary">نشر في {{post.date|date:'d-m-Y'}}</span>
+        <h3><a class="text-dark" href="#">{{post.title}}</a></h3>
+        <p>{{post.content}}</p>
     </div>
-    
-    
-  
-    <div>
-        <h2>قائمة المنشورات</h2>
-        <div>
-            {% for post in posts %}
+
+
+        <!-- <div>
+            
             <h4>
                 {{ post.title }}
             </h4>
             {{ post.content }}
             {% endfor %}
-        </div>
-    </div>
+        </div> -->
+   
 {% endblock content %}
