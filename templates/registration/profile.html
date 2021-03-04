@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+ 
+
+<div class="border p-4 mb-5">
+    <div class="row">
+       <div class="col-md-3 pr-3">
+           <img src="{{user.profile.images.url}}" alt="الصورة الشخصية" width="100px">
+           <a class=" btn btn-secondary mt-3 "href=""> <i class="fas fa-pen fa-xs"></i> تعديل</a>
+       </div> 
+       <div class="col-md-9 text-center">
+           <h2>{{user.username}}</h2>
+           <p>الأسم :  <span>{{ user.first_name}}{{ user.last_name }}</span></p>
+           <p>البريد الألكتروني  : <span>{{ user.email }}</span>    </p>
+           <span></span>
+       </div> 
+    </div>
+</div>
+    <div>
+           <h5 class="border-bottom pb-3 pr-3">منشوراتي</h5>
+    </div>
+    <div>
+        {% for post in posts %}
+        <h5 class="text-center"> {{ post.title }}</h5>
+        {% empty %}
+        <h5 class="text-center"> انت  لم تقم بتدوين اي منشور مسبقاً</h5>
+        {% endfor %}
+        
+
+    </div>
+{% if post.title  >= 10  %}
+
+
+{% endif %}
+<div class="border-top pt-3 mt-3 text-center">
+    <a class="btn btn-secondary  bg-secondary" href="#"> السابق</a>
+    <span class="pr-4 pl-4 "> صفحة 15 من 22 </span>
+    <a class="btn btn-secondary  bg-secondary" href="#"> التالي</a>
+</div>
+{% endblock content %}

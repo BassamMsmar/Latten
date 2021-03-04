@@ -6,6 +6,7 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+      <link rel="stylesheet" href="{% static 'css/main.css' %}">
 
 
       <title>index</title>
@@ -40,20 +41,32 @@
                 </li>
               </ul>
             </div>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent"></div>
+            {% if user.is_authenticated %}
               <ul class="navbar-nav  mr-auto">
                 <li class="nav-item">
-                  <a class="nav-link" href="{% url 'login' %}">تسجيل الدخول |</a>
+                  <a class="nav-link" href="{% url 'profile' %}">مرحباً | <samp class="text-blod">{{ user.username}}</samp>    </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="{% url 'signin' %}">مستخدم جديد</a>
-                </li>
-                
+                  <a class="nav-link" href="{% url 'logout' %}">تسجيل خروج  </a>
+                </li> 
               </ul>
+              {% else %}
+              <ul class="navbar-nav  mr-auto">
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'login' %}">تسجيل الدخول |</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'signin' %}">مستخدم جديد</a>
+                  </li> 
+                </ul>
+              {% endif %}
             </div>
           </div>
         </nav>
       </header>
+
+
 
 
       {% block content %}
